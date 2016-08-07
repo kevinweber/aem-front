@@ -3,9 +3,6 @@
   "version": "0.0.2",
   "description": "",
   "main": "index.js",
-  "config": {
-    "path_to_watch": ".."
-  },
   "scripts": {
     "start": "npm-run-all --parallel sync:*",
     "sync:browser": "node js/browser-sync.js",
