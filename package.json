@@ -1,20 +1,25 @@
 {
   "name": "aem-front",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
+  "config": {
+    "path_to_watch": ".."
+  },
   "scripts": {
     "start": "npm-run-all --parallel sync:*",
-    "sync:browser": "node scripts/browser-sync.js",
-    "sync:aem": "node scripts/aem-sync.js",
+    "sync:browser": "node js/browser-sync.js",
+    "sync:aem": "node js/aem-sync.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kevin Weber",
-  "license": "ISC",
+  "keywords": [
+    "AEM", "BrowserSync", "aemsync"
+  ],
+  "license": "",
   "dependencies": {
     "aemsync": "^1.1.1",
     "graceful-fs": "^4.1.5",
-    "minimist": "^1.2.0",
     "npm-run-all": "^2.3.0",
     "path": "^0.12.7"
   }
