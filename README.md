@@ -14,13 +14,12 @@ Work in progress.
     "path_to_watch": "../informatica-com-aem/"
   },
   "scripts": {
-    "start": "npm-run-all --parallel sync:*",
-    "sync:aem": "node node_modules/aem-front/bin/aem-front"
+    "start": "node node_modules/aem-front/bin/aem-front"
   },
   "author": "Kevin Weber",
   "license": "",
   "dependencies": {
-    "aem-front": "0.0.3"
+    "aem-front": "0.0.4"
   }
 }
 ```
