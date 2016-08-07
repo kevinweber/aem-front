@@ -38,7 +38,7 @@ var getConfig = (key, defaultValue) => {
   return value;
 }
 
-var aemSync = () => {
+var init = () => {
   'use strict';
 
   let args = {
@@ -87,7 +87,7 @@ var aemSync = () => {
 }
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = aemSync;
+  module.exports = {
+    init: init
+  };
 }
-
-aemSync();

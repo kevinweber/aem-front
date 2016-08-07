@@ -1,5 +1,7 @@
 # AEM Front
 
+Work in progress.
+
 1. Create a package.json with the following content:
 
 ```
@@ -9,17 +11,16 @@
   "description": "",
   "main": "index.js",
   "config": {
-    "path_to_watch": "../project-path/"
+    "path_to_watch": "../informatica-com-aem/"
   },
   "scripts": {
     "start": "npm-run-all --parallel sync:*",
-    "sync:browser": "node node_modules/aem-front/js/browser-sync.js",
-    "sync:aem": "node node_modules/aem-front/js/aem-sync.js"
+    "sync:aem": "node node_modules/aem-front/bin/aem-front"
   },
   "author": "Kevin Weber",
   "license": "",
   "dependencies": {
-    "aem-front": "0.0.2"
+    "aem-front": "0.0.3"
   }
 }
 ```
@@ -27,4 +28,4 @@
 2. Run `npm install`
 3. Run `npm start` whenever you want to use this.
 
-Use this Chrome extension to make BrowserSync working on relevant `localhost:4502` page: https://github.com/kevinweber/aem-productivity-tools
+Use the corresponding Chrome extension to make BrowserSync working on relevant `localhost:4502` page: https://github.com/kevinweber/aem-productivity-tools
