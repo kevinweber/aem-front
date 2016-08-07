@@ -5,7 +5,9 @@ const fs = require('graceful-fs');
 const aemsync = require('aemsync');
 const Watcher = aemsync.Watcher;
 const Pusher = aemsync.Pusher;
-const exec = require('child_process').exec;
+
+const browserSync = require('./browser-sync.js');
+require('./browser-sync.js').create({ name: 'aem-sync' });
 
 const MSG_HELP = `Usage: node index.js -- [OPTIONS]
 Options:
@@ -17,33 +19,12 @@ Options:
   -h                   Displays this screen`;
 
 
-// Documentation: https://www.browsersync.io/docs/command-line#reload
-//  # Reload assuming standard address of http://localhost:3000
-//  $ browser-sync reload
-//
-//  # Reload assuming standard address of http://localhost:3000
-//  $ browser-sync reload --port 4000 --files="*.css"
-//
-//  # Reload assuming standard address of http://localhost:3000
-//  $ browser-sync reload --url https://localhost:3000 --files="*.css"
-var cmdReloadBrowser = 'browser-sync reload';
 
-var aemBrowserSyncReload = function () {
-  // Manually trigger browser reload
-  exec(cmdReloadBrowser, function (error, stdout, stderr) {
-    if (error) {
-      console.log(error);
-    }
-    if (stdout) {
-      console.log(stdout);
-    }
-    if (stderr) {
-      console.log(stderr);
-    }
-  });
+var aemBrowserSyncReload = () => {
+  browserSync.reload({ name: 'aem-sync' });
 }
 
-var aemSync = function () {
+var aemSync = () => {
   'use strict';
 
   let args = minimist(process.argv.slice(2));
@@ -55,7 +36,7 @@ var aemSync = function () {
   }
 
   // Get other args.
-  let workingDir = path.resolve(args.w ? args.w : '.');
+  let workingDir = path.resolve(args.w ? args.w : '..');
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
   if (!fs.existsSync(workingDir)) {
@@ -89,3 +70,5 @@ var aemSync = function () {
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
   module.exports = aemSync;
 }
+
+aemSync();

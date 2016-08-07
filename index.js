@@ -1,12 +1,11 @@
-var aemSync = require('./scripts/aem-sync.js');
-
-var init = (function () {
-//    browserSync();
-  aemSync();
-}());
-
-module.exports = {
-  init: init
-};
-
-aemSync.init;
+//const start = require('npm-run-all');
+//
+//start(["start"], {
+//    parallel: true
+//  })
+//  .then(() => {
+//    console.log("done!");
+//  })
+//  .catch(err => {
+//    console.log("failed!");
+//  });
