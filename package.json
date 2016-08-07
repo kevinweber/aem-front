@@ -1,0 +1,19 @@
+{
+  "name": "aem-front",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "parallelshell 'browser-sync start --no-ui --no-open --no-notify' 'node index.js -w ../informatica-com-aem'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kevin Weber",
+  "license": "ISC",
+  "dependencies": {
+    "aemsync": "^1.1.1",
+    "graceful-fs": "^4.1.5",
+    "minimist": "^1.2.0",
+    "parallelshell": "^2.0.0",
+    "path": "^0.12.7"
+  }
+}
