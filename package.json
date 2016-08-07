@@ -1,6 +1,6 @@
 {
   "name": "aem-front",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "main": "index.js",
   "config": {
@@ -14,7 +14,9 @@
   },
   "author": "Kevin Weber",
   "keywords": [
-    "AEM", "BrowserSync", "aemsync"
+    "AEM",
+    "BrowserSync",
+    "aemsync"
   ],
   "license": "",
   "dependencies": {
