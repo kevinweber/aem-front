@@ -16,6 +16,7 @@
   "license": "",
   "dependencies": {
     "aemsync": "^1.1.1",
+    "browser-sync": "^2.14.0",
     "graceful-fs": "^4.1.5",
     "path": "^0.12.7"
   },
