@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('graceful-fs');
+const opn = require('opn');
 
 const aemsync = require('aemsync');
 const Watcher = aemsync.Watcher;
@@ -42,10 +43,13 @@ var init = () => {
   'use strict';
 
   let args = {
-    w: getConfig("path_to_watch", ".."),
-    t: getConfig("targets", "http://admin:admin@localhost:4502"),
-    i: getConfig("sync_interval", 300),
-    e: getConfig("exclude_filter", "")
+    w: getConfig("aem_front__path_to_watch", ".."),
+    t: getConfig("aem_front__targets", "http://admin:admin@localhost:4502"),
+    i: getConfig("aem_front__sync_interval", 300),
+    e: getConfig("aem_front__exclude_filter", ""),
+    startPage: getConfig("aem_front__start_page", "http://kevinw.de/aem-front-status/"),
+    // The app name for startBrowser is platform dependent. For example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows. If startBrowser is set to "false", no page will open.
+    startBrowser: getConfig("aem_front__start_browser", "google chrome"),
   };
 
   //  // Show help.
@@ -55,7 +59,7 @@ var init = () => {
   //  }
 
   // Get other args.
-  let workingDir = path.resolve(args.w);
+  let workingDir = "..";
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
   if (!fs.existsSync(workingDir)) {
@@ -84,6 +88,11 @@ var init = () => {
     pusher.enqueue(localPath)
   })
 
+  if (args.startBrowser !== false && args.startBrowser !== "false") {
+    opn(args.startPage, {
+      app: args.startBrowser
+    });
+  }
 }
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
