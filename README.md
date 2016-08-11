@@ -11,7 +11,7 @@ Work in progress. Things might change drastically.
   "description": "",
   "main": "index.js",
   "config": {
-    "path_to_watch": "../project-directory/"
+    "aem_front__path_to_watch": "../project-directory/"
   },
   "scripts": {
     "sync": "node node_modules/aem-front/bin/aem-front"
@@ -27,4 +27,4 @@ Work in progress. Things might change drastically.
 2. Run `npm install`
 3. Run `npm run sync` whenever you want to use this.
 
-Use the corresponding Chrome extension to make BrowserSync working: https://github.com/kevinweber/aem-productivity-tools
+Important: After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
