@@ -59,7 +59,7 @@ var init = () => {
   //  }
 
   // Get other args.
-  let workingDir = "..";
+  let workingDir = path.resolve(args.w);
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
   if (!fs.existsSync(workingDir)) {
