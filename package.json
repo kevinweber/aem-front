@@ -20,8 +20,8 @@
     "adobe",
     "frontend",
     "front-end",
-    "kevin-weber",
     "kevinweber",
+    "kevin-weber",
     "Kevin Weber"
   ],
   "respository": {
@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/kevinweber/aem-front/issues"
   },
-  "license": "",
+  "license": "GPL-3",
   "dependencies": {
     "aemsync": "^1.1.1",
     "browser-sync": "^2.14.0",
