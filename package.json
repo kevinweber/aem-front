@@ -10,9 +10,27 @@
   "author": "Kevin Weber",
   "keywords": [
     "AEM",
+    "aem",
     "BrowserSync",
-    "aemsync"
+    "browsersync",
+    "LiveReload",
+    "livereload",
+    "aemsync",
+    "aem-sync",
+    "adobe",
+    "frontend",
+    "front-end",
+    "kevin-weber",
+    "kevinweber",
+    "Kevin Weber"
   ],
+  "respository": {
+    "type": "git",
+    "url": "https://github.com/kevinweber/aem-front.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kevinweber/aem-front/issues"
+  },
   "license": "",
   "dependencies": {
     "aemsync": "^1.1.1",
