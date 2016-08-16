@@ -7,7 +7,7 @@ Work in progress. Things might change drastically.
 ```
 {
   "name": "frontend-tools",
-  "version": "1.0",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "config": {
@@ -19,7 +19,7 @@ Work in progress. Things might change drastically.
   "author": "Kevin Weber",
   "license": "",
   "dependencies": {
-    "aem-front": "^0.0.7"
+    "aem-front": "^0.0.8"
   }
 }
 ```
@@ -27,5 +27,4 @@ Work in progress. Things might change drastically.
 2. Make sure that the "path_to_watch" points to your AEM folder, and that under dependencies you're using the latest version of this module.
 3. Run `npm install`
 4. Run `npm run sync` whenever you want to use this.
-
-Important: After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
+5. After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
