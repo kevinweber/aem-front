@@ -2,29 +2,41 @@
 
 Work in progress. Things might change drastically.
 
-1. Create a package.json with the following content:
+### Installation
+
+With [npm](http://npmjs.org) do:
 
 ```
-{
-  "name": "frontend-tools",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "config": {
-    "aem_front__path_to_watch": "../project-directory/"
-  },
-  "scripts": {
-    "sync": "node node_modules/aem-front/bin/aem-front"
-  },
-  "author": "Kevin Weber",
-  "license": "",
-  "dependencies": {
-    "aem-front": "^0.0.8"
-  }
-}
+npm install aem-front -g
 ```
 
-2. Make sure that the "path_to_watch" points to your AEM folder, and that under dependencies you're using the latest version of this module.
-3. Run `npm install`
-4. Run `npm run sync` whenever you want to use this.
-5. After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
+### Usage
+
+In your commandline:
+```
+aem-front -w path_to_watch -t targets
+
+-w: Folder to watch; default is current.
+-t: Comma separated list of target hosts; default is http://admin:admin@localhost:4502.
+-e: Anymatch exclude filter; any file matching the pattern will be skipped.
+-o Browser page to be opened after successful launch. If set to "false", no page will open.
+-b Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
+-i: Update interval; default is 300ms.
+```
+
+```
+aem-front -w ~/workspace/my_project
+```
+
+### Step-by-step guide
+1. If you haven't installed Node and npm on your system yet, you can install it like this:
+```
+sudo brew install node
+sudo npm install npm -g
+```
+2. Install AEM Front by running the command listed in the "Installation" section anywhere in your terminal.
+3. Run the command listed in the "Usage" section in your terminal from a folder where you want to watch file changes. But you can basically run it from anywhere as long as you pass the correct path with the "-w" option.
+4. After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
+
+
+Thanks to the [BrowserSync](https://www.npmjs.com/package/browser-sync) team and to gavoja for [aemsync](https://www.npmjs.com/package/aemsync).
