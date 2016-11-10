@@ -46,7 +46,7 @@ var init = () => {
 
   let workingDir = path.resolve(args.w || ".");
   let targets = args.t || "http://admin:admin@localhost:4502";
-  let pushInterval = args.i || 300;
+  let pushInterval = args.i || 100;
   let exclude = args.e || "";
   let startPage = args.o || "http://kevinw.de/aem-front-status/?utm_source=AEMFront&utm_medium=npm&utm_campaign=AEM";
   let startBrowser = args.browser || "google chrome";
@@ -65,7 +65,7 @@ var init = () => {
   console.log("Exclude:", exclude);
   console.separate();
 
-  let pusher = new Pusher(targets.split(','), pushInterval, reloadBrowser);
+  let pusher = new Pusher(targets.split(','), 600, reloadBrowser);
   let watcher = new Watcher();
 
   // Initialize queue processing
@@ -74,7 +74,9 @@ var init = () => {
   // Watch over workingDir
   watcher.watch(workingDir, exclude, (localPath) => {
     // Add item to Pusher's queue when a change is detected
-    pusher.enqueue(localPath);
+    setTimeout(function () {
+      pusher.enqueue(localPath);
+    }, pushInterval);
   })
 
   if (startPage !== false && startPage !== "false") {

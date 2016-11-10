@@ -20,7 +20,7 @@ In your command line:
     -e: Anymatch exclude filter; any file matching the pattern will be skipped.
     -o Browser page to be opened after successful launch. If set to "false", no page will open.
     -b Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
-    -i: Update interval in milliseconds; default is 300.
+    -i: Update interval in milliseconds; default is 100.
     ```
 
     ```
