@@ -65,7 +65,7 @@ var init = () => {
   console.log("Exclude:", exclude);
   console.separate();
 
-  let pusher = new Pusher(targets.split(','), 600, reloadBrowser);
+  let pusher = new Pusher(targets.split(','), pushInterval, reloadBrowser);
   let watcher = new Watcher();
 
   // Initialize queue processing
