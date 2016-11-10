@@ -1,6 +1,6 @@
 # AEM Front
 
-_Work in progress. Things may change drastically._
+AEM Front speeds up development in AEM significantly. It combines AEMSync with BrowserSync, and also works together with the AEM Front Extension for Google Chrome so you don't have to manually inject the BrowserSync script into your code base.
 
 ### Installation
 

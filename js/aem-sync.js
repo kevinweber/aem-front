@@ -7,6 +7,9 @@ const aemsync = require('aemsync');
 const Watcher = aemsync.Watcher;
 const Pusher = aemsync.Pusher;
 
+const ANSI_COLOR_CYAN = '\x1b[36m';
+const ANSI_COLOR_RESET = '\x1b[0m';
+
 const browserSync = require('./browser-sync.js');
 require('./browser-sync.js').create({
   name: 'aem-sync'
@@ -54,7 +57,7 @@ var init = () => {
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
   if (!fs.existsSync(workingDir)) {
-    console.log('\x1b[36m', 'Invalid path:', workingDir, '\x1b[0m');
+    console.log(ANSI_COLOR_CYAN, 'Invalid path:', workingDir, ANSI_COLOR_RESET);
     return;
   }
 
@@ -86,8 +89,9 @@ var init = () => {
   }
 
   console.separate();
-  console.log("NOTE: To check if you're using the most up-to-date version of the corresponding AEM Front browser extension, go to http://kevinw.de/aem-front-status/");
+  console.log("NOTE: AEM Front can work together with the corresponding Chrome browser extension. To check if you're using the most up-to-date version, go to " + ANSI_COLOR_CYAN + "http://kevinw.de/aem-front-status/" + ANSI_COLOR_RESET + ". But you can also use AEM Front without extension by adding the code snippet displayed below into your website manually.");
   console.separate();
+  console.log("\n");
 }
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
