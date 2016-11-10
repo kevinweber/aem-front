@@ -18,7 +18,7 @@ In your command line:
     -w: Folder to watch; default is current.
     -t: Comma separated list of target hosts; default is http://admin:admin@localhost:4502.
     -e: Anymatch exclude filter; any file matching the pattern will be skipped.
-    -o Browser page to be opened after successful launch. If set to "false", no page will open.
+    -o Browser page to be opened after successful launch; default is "false".
     -b Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
     -i: Update interval in milliseconds; default is 100.
     ```
@@ -29,7 +29,7 @@ In your command line:
 
 ### Requirements
 - NodeJS and NPM
-- Chrome Browser
+- Required for corresponding Chrome extension: Chrome Browser
 
 ### Step-by-step guide
 1. If you do not have Node and NPM installed, in command line run:
@@ -47,7 +47,7 @@ In your command line:
 
 3. Run the command listed in the "Usage" section in your terminal from a folder where you want to watch file changes. But you can basically run it from anywhere as long as you pass the correct path with the "-w" option.
 
-4. After successfully starting this script, a page will open in Chrome allowing you to install the corresponding Chrome extension. The extension is required to make BrowserSync working. You can also install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
+4. After successfully starting this script, you can/should install the corresponding Chrome extension. The script injects the required BrowserSync script automatically into your website and comes with a few handy configuration options. But you can also past the BrowserSync script into your website manually. You can install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
 
 
 Thanks to the [BrowserSync](https://www.npmjs.com/package/browser-sync) team and to [gavoja](https://github.com/gavoja) for [aemsync](https://www.npmjs.com/package/aemsync).

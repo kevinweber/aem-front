@@ -25,8 +25,8 @@ Options:
   -t targets           Default is http://admin:admin@localhost:4502
   -w path_to_watch     Default is current
   -e exclude_filter    Anymach exclude filter; disabled by default
-  -i sync_interval     Update interval; default is 300ms
-  -o open_page         Browser page to be opened after successful launch; if set to "false", no page will open
+  -i sync_interval     Update interval in milliseconds; default is 100
+  -o open_page         Browser page to be opened after successful launch; default is "false".
   -b browser           Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome"
   -h                   Displays this screen`;
 
@@ -51,7 +51,7 @@ var init = () => {
   let targets = args.t || "http://admin:admin@localhost:4502";
   let pushInterval = args.i || 100;
   let exclude = args.e || "";
-  let startPage = args.o || "http://kevinw.de/aem-front-status/?utm_source=AEMFront&utm_medium=npm&utm_campaign=AEM";
+  let startPage = args.o || false;
   let startBrowser = args.browser || "google chrome";
 
 
