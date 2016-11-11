@@ -18,8 +18,8 @@ In your command line:
     -w: Folder to watch; default is current.
     -t: Comma separated list of target hosts; default is http://admin:admin@localhost:4502.
     -e: Anymatch exclude filter; any file matching the pattern will be skipped.
-    -o Browser page to be opened after successful launch; default is "false".
-    -b Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
+    -o: Browser page to be opened after successful launch; default is "false".
+    -b: Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
     -i: Update interval in milliseconds; default is 100.
     -v: Display version of AEM Front.
     ```
