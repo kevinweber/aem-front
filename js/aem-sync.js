@@ -4,17 +4,15 @@ const opn = require('opn');
 const minimist = require('minimist');
 
 const packageInfo = require('./../package.json');
+
+const browserSync = require('./browser-sync.js');
+
 const aemsync = require('aemsync');
 const Watcher = aemsync.Watcher;
 const Pusher = aemsync.Pusher;
 
 const ANSI_COLOR_CYAN = '\x1b[36m';
 const ANSI_COLOR_RESET = '\x1b[0m';
-
-const browserSync = require('./browser-sync.js');
-require('./browser-sync.js').create({
-  name: 'aem-sync'
-});
 
 console.separate = () => {
   console.log("---------------------------------------");
@@ -54,6 +52,11 @@ var init = () => {
     console.log(packageInfo.version);
     return;
   }
+
+  browserSync.create({
+    name: 'aem-sync'
+  });
+
   let workingDir = path.resolve(args.w || ".");
   let targets = args.t || "http://admin:admin@localhost:4502";
   let pushInterval = args.i || 100;
