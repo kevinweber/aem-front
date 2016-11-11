@@ -3,6 +3,7 @@ const fs = require('graceful-fs');
 const opn = require('opn');
 const minimist = require('minimist');
 
+const packageInfo = require('./../package.json');
 const aemsync = require('aemsync');
 const Watcher = aemsync.Watcher;
 const Pusher = aemsync.Pusher;
@@ -28,7 +29,8 @@ Options:
   -i sync_interval     Update interval in milliseconds; default is 100
   -o open_page         Browser page to be opened after successful launch; default is "false".
   -b browser           Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome"
-  -h                   Displays this screen`;
+  -h                   Displays this screen
+  -v                   Displays version of this package`;
 
 var reloadBrowser = () => {
   browserSync.reload({
@@ -47,6 +49,11 @@ var init = () => {
     return;
   }
 
+  // Show version
+  if (args.v) {
+    console.log(packageInfo.version);
+    return;
+  }
   let workingDir = path.resolve(args.w || ".");
   let targets = args.t || "http://admin:admin@localhost:4502";
   let pushInterval = args.i || 100;

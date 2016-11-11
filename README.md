@@ -21,6 +21,7 @@ In your command line:
     -o Browser page to be opened after successful launch; default is "false".
     -b Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
     -i: Update interval in milliseconds; default is 100.
+    -v: Display version of AEM Front.
     ```
 
     ```
