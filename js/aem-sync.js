@@ -16,7 +16,7 @@ const ANSI_COLOR_RESET = '\x1b[0m';
 
 console.separate = () => {
   console.log("---------------------------------------");
-}
+};
 
 // Command line options
 const MSG_HELP = `Usage: aem-front [OPTIONS]
@@ -30,13 +30,13 @@ Options:
   -h                   Displays this screen
   -v                   Displays version of this package`;
 
-var reloadBrowser = () => {
+let reloadBrowser = () => {
   browserSync.reload({
     name: 'aem-sync'
   });
-}
+};
 
-var init = () => {
+let init = () => {
   'use strict';
 
   let args = minimist(process.argv.slice(2));
@@ -53,10 +53,6 @@ var init = () => {
     return;
   }
 
-  browserSync.create({
-    name: 'aem-sync'
-  });
-
   let workingDir = path.resolve(args.w || ".");
   let targets = args.t || "http://admin:admin@localhost:4502";
   let pushInterval = args.i || 100;
@@ -64,6 +60,10 @@ var init = () => {
   let startPage = args.o || false;
   let startBrowser = args.browser || "google chrome";
 
+  browserSync.create({
+      name: 'aem-sync',
+      proxy: targets
+  });
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
   if (!fs.existsSync(workingDir)) {
@@ -82,7 +82,7 @@ var init = () => {
   let watcher = new Watcher();
 
   // Initialize queue processing
-  pusher.start()
+  pusher.start();
 
   // Watch over workingDir
   watcher.watch(workingDir, exclude, (localPath) => {
@@ -90,7 +90,7 @@ var init = () => {
     setTimeout(function () {
       pusher.enqueue(localPath);
     }, pushInterval);
-  })
+  });
 
   if (startPage !== false && startPage !== "false") {
     opn(startPage, {
@@ -102,7 +102,7 @@ var init = () => {
   console.log("NOTE: AEM Front can work together with the corresponding Chrome browser extension. To check if you're using the most up-to-date version, go to " + ANSI_COLOR_CYAN + "http://kevinw.de/aem-front-status/" + ANSI_COLOR_RESET + ". But you can also use AEM Front without extension by adding the code snippet displayed below into your website manually.");
   console.separate();
   console.log("\n");
-}
+};
 
 if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
   module.exports = {
