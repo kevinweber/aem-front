@@ -29,7 +29,7 @@ You can also specify one or multiple of the following options:
 If you want to specify a path to watch (`-w`), a folder to exclude (`-e`) and increase the update interval (`-i`), it could look like this:
 
 ```
-aem-front -w ./../sibling/my_project -e **/webpack.module/** -i 500
+aem-front -w "./../sibling/my_project" -e "**/webpack.module/**" -i "500"
 ```
 
 ## Requirements
