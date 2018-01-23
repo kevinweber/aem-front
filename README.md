@@ -4,19 +4,19 @@ AEM Front speeds up development in AEM significantly. It combines AEMSync with B
 
 ## Installation
 
-```
+```bash
 npm install aem-front -g
 ```
 
 ## Usage
 
-```
+```bash
 aem-front
 ```
 
 You can also specify one or multiple of the following options:
 
-```
+```bash
 -w: Folder to watch; default is current.
 -t: Comma separated list of target hosts; default is http://admin:admin@localhost:4502.
 -e: Anymatch exclude filter; any file matching the pattern will be skipped.
@@ -28,7 +28,7 @@ You can also specify one or multiple of the following options:
 
 If you want to specify a path to watch (`-w`), a folder to exclude (`-e`) and increase the update interval (`-i`), it could look like this:
 
-```
+```bash
 aem-front -w "./../sibling/my_project" -e "**/webpack.module/**" -i "500"
 ```
 
@@ -41,14 +41,14 @@ aem-front -w "./../sibling/my_project" -e "**/webpack.module/**" -i "500"
 
 1. If you do not have Node and NPM installed, in command line run:
 
-```
+```bash
 sudo brew install node
 sudo npm install npm -g
 ```
 
 2. Install AEM Front by running:
 
-```
+```bash
 npm install aem-front -g
 ```
 
