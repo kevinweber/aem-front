@@ -56,5 +56,19 @@ npm install aem-front -g
 
 4. After successfully starting this script, you can/should install the corresponding Chrome extension. The script injects the required BrowserSync script automatically into your website and comes with a few handy configuration options. But you can also past the BrowserSync script into your website manually. You can install the extension directly from the Chrome app store: https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih
 
+## Development
+
+If you clone this project (aem-front) to your local machine and modify it, you can test changes without having to push and publish them to the NPM repository. Do this by linking aem-front globally. In your terminal, run:
+
+```
+npm link
+```
+
+Then, in your project where you want to test the local aem-front instead of the one hosted at npmjs.com, run:
+
+```
+npm link aem-front
+```
+
 
 Thanks to the [BrowserSync](https://www.npmjs.com/package/browser-sync) team and to [gavoja](https://github.com/gavoja) for [aemsync](https://www.npmjs.com/package/aemsync).
