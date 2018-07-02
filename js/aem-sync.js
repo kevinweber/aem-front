@@ -103,7 +103,7 @@ let init = () => {
   }
 
   console.separate();
-  console.log(`NOTE: AEM Front can work together with the corresponding Chrome browser extension. To check if you're using the most up-to-date version, go to ${ANSI_COLOR_CYAN}https://kevinw.de/aem-front-status/${ANSI_COLOR_RESET}. But you can also use AEM Front without extension by adding the code snippet displayed below into your website manually.`);
+  console.log(`NOTE: It's recommended to use AEM Front together with the corresponding Chrome browser extension. Get it from the official app store: ${ANSI_COLOR_CYAN}https://chrome.google.com/webstore/detail/cmpbphecgagbhhociicpakhddeagjlih${ANSI_COLOR_RESET}. Alternatively, you can use AEM Front without extension by adding a BrowserSync code into your AEM site manually.`);
   console.separate();
   console.log('\n');
 };
