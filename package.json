@@ -34,7 +34,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "aemsync": "^3.0.1",
+    "aemsync": "^3.0.2",
     "browser-sync": "^2.24.5",
     "graceful-fs": "^4.1.11",
     "minimist": "^1.2.0",
