@@ -31,10 +31,16 @@ Options:
   -h                   Displays this screen
   -v                   Displays version of this package`;
 
-let reloadBrowser = () => {
-  browserSync.reload({
-    name: 'aem-sync'
-  });
+let reloadBrowser = browserSyncTarget => (err, host) => {
+    if (err) {
+        return console.error(`Error when pushing package to ${host}`, err);
+    }
+
+    if (browserSyncTarget.includes(host)) {
+        browserSync.reload({
+            name: 'aem-sync'
+        });
+    }
 };
 
 let init = () => {
@@ -55,7 +61,8 @@ let init = () => {
   }
 
   let workingDir = path.resolve(args.w || '.');
-  let targets = (args.t || 'http://admin:admin@localhost:4502').split(',')
+  let targets = (args.t || 'http://admin:admin@localhost:4502').split(',');
+  let browserSyncTarget = targets[0];
   let interval = args.i || 100;
   let packmgrPath = args.u;
   let exclude = args.e || '';
@@ -64,12 +71,11 @@ let init = () => {
 
   if (targets.length > 1) {
     console.log(`You've provided multiple targets. Only the first one is used by BrowserSync.`);
-    return;
   }
 
   browserSync.create({
     name: 'aem-sync',
-    proxy: targets[0]
+    proxy: browserSyncTarget
   });
 
   // Overview ANSI color codes: http://www.lihaoyi.com/post/BuildyourownCommandLinewithANSIescapecodes.html
@@ -86,7 +92,7 @@ let init = () => {
   console.separate();
 
   // Reload browser once files are pushed to AEM instance
-  let onPushEnd = reloadBrowser;
+  let onPushEnd = reloadBrowser(browserSyncTarget);
   aemsync({
     workingDir,
     targets,
