@@ -34,11 +34,11 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
-    "aemsync": "https://github.com/kevinweber/aemsync/tarball/feature/multiple-excludes",
-    "browser-sync": "^2.24.7",
-    "graceful-fs": "^4.1.11",
+    "aemsync": "^4.0.0-rc1",
+    "browser-sync": "^2.26.7",
+    "graceful-fs": "^4.1.15",
     "minimist": "^1.2.0",
-    "opn": "^5.3.0",
+    "opn": "^5.5.0",
     "path": "^0.12.7"
   },
   "bin": {
