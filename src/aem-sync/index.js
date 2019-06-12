@@ -1,14 +1,13 @@
-const path = require("path");
 const fs = require("graceful-fs");
 const opn = require("opn");
 const minimist = require("minimist");
 
-const packageInfo = require("./../package.json");
+const packageInfo = require("../../package.json");
+const mapArgs = require("./mapArgs");
 
-const browserSync = require("./browser-sync.js");
+const browserSync = require("../browser-sync");
 
 const aemsync = require("aemsync");
-const aemsyncDefaults = require("aemsync/src/defaults");
 
 const Watcher = aemsync.Watcher;
 const Pipeline = aemsync.Pipeline;
@@ -34,7 +33,7 @@ Options:
   -h                   Displays this screen
   -v                   Displays version of this package`;
 
-let reloadBrowser = browserSyncTarget => (err, host) => {
+const reloadBrowser = browserSyncTarget => (err, host) => {
   if (err) {
     return console.error(`Error when pushing package to ${host}`, err);
   }
@@ -46,10 +45,10 @@ let reloadBrowser = browserSyncTarget => (err, host) => {
   }
 };
 
-let init = () => {
+const init = () => {
   "use strict";
 
-  let args = minimist(process.argv.slice(2));
+  const args = minimist(process.argv.slice(2));
 
   // Show help
   if (args.h) {
@@ -63,23 +62,16 @@ let init = () => {
     return;
   }
 
-  const workingDir = path.resolve(args.w || aemsyncDefaults.workingDir);
-  const targets = args.t
-    ? typeof args.t === "string"
-      ? [...args.t.split(",")]
-      : args.t
-    : aemsyncDefaults.targets;
-  const browserSyncTarget = targets[0];
-  const interval = args.i || 100;
-  const packmgrPath = args.u || aemsyncDefaults.packmgrPath;
-  const exclude = args.e
-    ? typeof args.e === "string"
-      ? [...args.e.split(",")]
-      : args.e
-    : aemsyncDefaults.exclude;
-
-  const startPage = args.o || false;
-  const startBrowser = args.browser || "google chrome";
+  const {
+    workingDir,
+    targets,
+    browserSyncTarget,
+    interval,
+    packmgrPath,
+    exclude,
+    startPage,
+    startBrowser
+  } = mapArgs(args);
 
   if (targets.length > 1) {
     consoleSeparator();
@@ -111,7 +103,7 @@ let init = () => {
   `);
 
   // Reload browser once files are pushed to AEM instance
-  let onPushEnd = reloadBrowser(browserSyncTarget);
+  const onPushEnd = reloadBrowser(browserSyncTarget);
 
   aemsync(workingDir, {
     workingDir,
@@ -136,8 +128,6 @@ let init = () => {
   console.log("\n");
 };
 
-if (typeof module !== "undefined" && typeof module.exports !== "undefined") {
-  module.exports = {
-    init: init
-  };
-}
+module.exports = {
+  init
+};
