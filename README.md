@@ -17,19 +17,21 @@ aem-front
 You can also specify one or multiple of the following options:
 
 ```bash
--w: Folder to watch; default is current.
--t: Comma separated list of target hosts; default is http://admin:admin@localhost:4502.
--e: Anymatch exclude filter; any file matching the pattern will be skipped.
+-w: Folder to watch; default is current (`CWD`).
+-t: URL to AEM instance; multiple can be set. Default is http://admin:admin@localhost:4502.
+-e: Anymatch exclude filter; any file matching the pattern will be skipped. Default is `**/jcr_root/*, **/@(.git|.svn|.hg|target), **/@(.git|.svn|.hg|target)/**`
 -o: Browser page to be opened after successful launch; default is "false".
 -b: Browser where page should be opened in; this parameter is platform dependent; for example, Chrome is "google chrome" on OS X, "google-chrome" on Linux and "chrome" on Windows; default is "google chrome".
 -i: Update interval in milliseconds; default is 100.
 -v: Display version of AEM Front.
 ```
 
-If you want to specify a path to watch (`-w`), a folder to exclude (`-e`) and increase the update interval (`-i`), it could look like this:
+Examples:
 
 ```bash
 aem-front -w "./../sibling/my_project" -e "**/webpack.module/**" -i "500"
+
+aem-front -t http://admin:admin@localhost:4502 -t http://admin:admin@localhost:4503 -w ~/workspace/my_project
 ```
 
 ## Requirements
@@ -69,6 +71,5 @@ Then, in your project where you want to test the local aem-front instead of the 
 ```
 npm link aem-front
 ```
-
 
 Thanks to the [BrowserSync](https://www.npmjs.com/package/browser-sync) team and to [gavoja](https://github.com/gavoja) for [aemsync](https://www.npmjs.com/package/aemsync).
